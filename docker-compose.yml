@@ -66,6 +66,15 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
 
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+        - 8080:80
+      environment:
+        - PMA_HOST=db
+        - PMA_USER=${DB_USERNAME:-phper}
+        - PMA_PASSWORD=${DB_PASSWORD:-secret}
+
   mailhog:
     image: mailhog/mailhog
     ports:
